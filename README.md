@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/elisilk/social-proof-section](https://github.com/elisilk/social-proof-section)
+- Live Site URL: [https://elisilk.github.io/social-proof-section/](https://elisilk.github.io/social-proof-section/)
 
 ## My process
 
@@ -44,11 +44,6 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
@@ -66,29 +61,35 @@ Users should be able to:
   - [Nu Html Checker](https://validator.w3.org/nu/)
 - [CSS Tricks: Expanding Beyond a Parent div](https://www.modusagency.com/blog/css-tricks-expanding-beyond-a-parent-div/)
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
+I'm definitely proud of how I implemented the cascade effect of both the ratings and the testimonials. For example:
 
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+.ratings-list {
+  --cascade: 48px;
+  grid-template-columns: var(--cascade) var(--cascade) 1fr var(--cascade) var(--cascade);
+  grid-template-rows: 1fr 1fr 1fr;
+  row-gap: 14px;
+  column-gap: 0;
+}
+
+.rating:nth-of-type(1) {
+  --index: 1;
+}
+
+.rating:nth-of-type(2) {
+  --index: 2;
+}
+
+.rating:nth-of-type(3) {
+  --index: 3;
+}
+
+.rating {
+  grid-row-start: var(--index);
+  grid-column-start: var(--index);
+  grid-column-end: calc(var(--index) + 3);
 }
 ```
-
-```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
